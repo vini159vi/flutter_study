@@ -8,38 +8,41 @@ class LoginPage extends StatelessWidget {
         title: Text("Teste"),
       ),
       body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: Colors.white,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                fit: BoxFit.fitHeight,
+                colorFilter: ColorFilter.mode(Colors.grey, BlendMode.color),
+                image: AssetImage("assets/barber.jpg"))),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Row(
+              mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                Stack(
-                  children: <Widget>[
-                    Container(
-                      width: 240,
-                      height: 240,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          color: Colors.deepPurple,
-                          borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(250))),
-                    ),
-                    Container(
-                      width: 320,
-                      height: 320,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          color: Colors.deepOrange,
-                          borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(320))),
-                    ),
-                  ],
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      Positioned(
+                        left:16,
+                        right:16,
+                        top: 56,
+                        child: Text(
+                          "Barber App",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white70,
+                            fontSize: 32,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 )
               ],
-            )
+            ),
           ],
         ),
       ),
